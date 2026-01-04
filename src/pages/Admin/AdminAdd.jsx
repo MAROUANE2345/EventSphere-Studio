@@ -10,7 +10,12 @@ const AdminAdd = () => {
   const [img,setImg] = useState("")
    const [fileKey, setFileKey] = useState(Date.now());
 
-  
+  const [eventNameErreur, setEventNameErreur] = useState("");
+const [categoryErreur, setCategoryErreur] = useState("");
+const [priceErreur, setPriceErreur] = useState("");
+const [descriptionErreur, setDescriptionErreur] = useState("");
+const [imgErreur, setImgErreur] = useState("");
+
 
   
 const UploadToCloudinary = async (file) => {
@@ -67,19 +72,63 @@ const UploadToCloudinary = async (file) => {
 };
 
 const AddEvents = () => {
+  let youCanSend = true;
+
+  if (!eventName.trim()) {
+    setEventNameErreur("You have to enter an event name");
+    youCanSend = false;
+    toast.error("You have to enter an event name");
+  } else {
+    setEventNameErreur("");
+  }
+
+  if (!category) {
+    setCategoryErreur("You have to select a category");
+    youCanSend = false;
+    toast.error("You have to select a category");
+  } else {
+    setCategoryErreur("");
+  }
+
+  if (priceTicket <= 0) {
+    setPriceErreur("Price must be greater than 0");
+    youCanSend = false;
+    toast.error("Price must be greater than 0");
+  } else {
+    setPriceErreur("");
+  }
+
+  if (!description.trim()) {
+    setDescriptionErreur("You have to enter a description");
+    youCanSend = false;
+    toast.error("You have to enter a description");
+  } else {
+    setDescriptionErreur("");
+  }
+
+  if (!img) {
+    setImgErreur("You have to upload an image");
+    youCanSend = false;
+    toast.error("You have to upload an image");
+  } else {
+    setImgErreur("");
+    
+  }
+
+  if (!youCanSend) return;
+
   axios.post("https://694d2605ad0f8c8e6e1fda1f.mockapi.io/Brief/Events", {
     eventName,
     category,
     priceTicket,
     description,
     img,
-    qte : 1
+    qte: 1
   })
   .then((response) => {
     console.log("✅ Event added successfully:", response.data);
     toast.success("Event added successfully!");
 
-    // Optional: reset form states
     setEventName("");
     setCategory("");
     setPriceTicket(0);
@@ -92,6 +141,7 @@ const AddEvents = () => {
     toast.error("Failed to add event");
   });
 };
+
 
 
   return (
