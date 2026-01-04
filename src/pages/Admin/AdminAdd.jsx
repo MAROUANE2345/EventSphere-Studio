@@ -177,6 +177,7 @@ const AddEvents = () => {
                 type="text"
                 onChange={(event) =>setEventName(event.target.value)}
                 value={eventName}
+                placeholder='enter the event Name'
                 className="w-full border border-gray-300 rounded-lg px-5 py-3 focus:outline-none focus:ring-2 focus:ring-black"
               />
             </div>
@@ -189,6 +190,7 @@ const AddEvents = () => {
               <select
                 onChange={(event) =>setCategory(event.target.value)}
                 value={category}
+               
                 className="w-full border border-gray-300 rounded-lg px-5 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-black"
               >
                 <option value="">Select category</option>
@@ -210,7 +212,8 @@ const AddEvents = () => {
               <input
                 type="number"
                 onChange={(event) =>setPriceTicket(event.target.value)}
-                value={priceTicket}
+               
+                placeholder='Enter the ticket Price'
                 className="w-full border border-gray-300 rounded-lg px-5 py-3 focus:outline-none focus:ring-2 focus:ring-black"
               />
             </div>
@@ -224,6 +227,7 @@ const AddEvents = () => {
                 rows="6"
                 onChange={(event) =>setDescription(event.target.value)}
                 value={description}
+                placeholder='Enter the description'
                 className="w-full border border-gray-300 rounded-lg px-5 py-3 focus:outline-none focus:ring-2 focus:ring-black"
               ></textarea>
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import './Home.css'
 const Home = () => {
   return (
     <div className="bg-gray-50">
@@ -50,7 +50,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="h-[420px] bg-indigo-100 rounded-3xl shadow-inner" />
+          <div className="h-[420px] bg-indigo-100 rounded-3xl shadow-inner photo" />
         </div>
       </section>
 

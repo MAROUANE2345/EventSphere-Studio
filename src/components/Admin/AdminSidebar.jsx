@@ -45,7 +45,7 @@ const AdminSidebar = () => {
         </Link>
 
         <Link
-          to="/admin/login"
+          to="/"
           className="flex items-center gap-2 text-red-400 hover:text-red-500 transition"
         >
           🔓 Log Out

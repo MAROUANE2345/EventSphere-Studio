@@ -1,0 +1,5 @@
+.photo{
+    background-image: url("../../public/HomePic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
